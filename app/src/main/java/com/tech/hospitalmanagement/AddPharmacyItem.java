@@ -1,0 +1,69 @@
+package com.tech.hospitalmanagement;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.tech.hospitalmanagement.Models.DrugModel;
+
+public class AddPharmacyItem extends AppCompatActivity {
+
+    private EditText drugID, drugName, drugURL, drugPrice, drugDescription;
+    private Button addDrug;
+    private FirebaseDatabase firebasedatabase;
+    private DatabaseReference databasereference;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_pharmacy_item);
+
+        drugID = findViewById(R.id.drugID);
+        drugName = findViewById(R.id.drugName);
+        drugURL = findViewById(R.id.drugURL);
+        drugPrice = findViewById(R.id.drugPrice);
+        drugDescription = findViewById(R.id.drugDescription);
+        addDrug = findViewById(R.id.drugedit);
+        firebasedatabase = FirebaseDatabase.getInstance();
+        databasereference = firebasedatabase.getReference("PharmacyItems");
+
+        addDrug.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String DrugID = drugID.getText().toString();
+                String DrugName = drugName.getText().toString();
+                String DrugURL = drugURL.getText().toString();
+                String DrugPrice = drugPrice.getText().toString();
+                String DrugDescription = drugDescription.getText().toString();
+
+                DrugModel drugmodel = new DrugModel(DrugID,DrugName,DrugURL,DrugPrice,DrugDescription);
+
+                databasereference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        databasereference.child(DrugID).setValue(drugmodel);
+                        Toast.makeText(AddPharmacyItem.this, "Drug Added", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(AddPharmacyItem.this, PharmacyMain.class));
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(AddPharmacyItem.this, "Error adding..", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
+    }
+}

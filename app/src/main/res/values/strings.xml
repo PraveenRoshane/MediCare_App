@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Hospital Management</string>
+    <string name="tv_login_register">Didn\'t have an account ? Register</string>
+    <string name="lg_username">Username</string>
+    <string name="lg_Password">Password</string>
+    <string name="tv_copyrights">\@2021 Copyrights</string>
+    <string name="lg_Email">Email</string>
+    <string name="btn_Login">LOGIN</string>
+    <string name="tv_loginHeader">Login</string>
+    <string name="lg_header">Login</string>
+    <string name="Lemail">Email</string>
+    <string name="Lpass">Password</string>
+    <string name="login">Sign In</string>
+    <string name="login_register">Did not have an Account? Register</string>
+    <string name="loading">We Care All Ways</string>
+    <string name="loading_IV">Loading</string>
+    <string name="tv_register">Register</string>
+    <string name="Uname">User Name</string>
+    <string name="Age">Age</string>
+    <string name="contct">Contact Number</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="gotologin">Already have an account...</string>
+    <string name="pharmacy_add">Add New Item</string>
+    <string name="drugURL">Drug Image URL</string>
+    <string name="drugID">Drug ID</string>
+    <string name="drugName">Drug Name</string>
+    <string name="drugPrice">Drug Price</string>
+    <string name="drugDescription">Drug Description</string>
+    <string name="drugadd">Add Drug Details</string>
+    <string name="pharmacy_Edit">Edit Drug Details</string>
+    <string name="drugedit">Edit Drug</string>
+    <string name="drugdelete">Delete</string>
+    <string name="add_button">Add Items</string>
+    <string name="pharmacy_btnEdit">Edit Item</string>
+</resources>
