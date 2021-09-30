@@ -7,6 +7,16 @@
     android:orientation="vertical"
     tools:context=".AddDoctor">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"
+        android:text="Add New Doctor"
+        android:textColor="#000000"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/docid"
         android:layout_width="match_parent"
@@ -83,8 +93,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:textColor="@color/white"
         android:text="Add Doctor Details"
+        android:textColor="@color/white"
         app:backgroundTint="@color/btn"
         app:cornerRadius="15dp" />
 </LinearLayout>

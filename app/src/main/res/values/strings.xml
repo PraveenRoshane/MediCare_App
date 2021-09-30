@@ -33,4 +33,13 @@
     <string name="drugdelete">Delete</string>
     <string name="add_button">Add Items</string>
     <string name="pharmacy_btnEdit">Edit Item</string>
+    <string name="cuslog">Customer Login</string>
+    <string name="adminlog">Admin Login</string>
+    <string name="CH_appoint">Appointments</string>
+    <string name="CH_pha">Pharmacy</string>
+    <string name="CH_Pay">Payments</string>
+    <string name="CH_logout">Logout</string>
+    <string name="CH_logo">Logo</string>
+    <string name="CH_logoname">Logo Name</string>
+    <string name="AH_Doctors">Doctors</string>
 </resources>

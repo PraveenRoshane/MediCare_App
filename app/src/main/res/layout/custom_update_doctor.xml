@@ -84,8 +84,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:text="Update Details"
         android:textColor="@color/white"
-        android:text="Add Doctor Details"
         app:backgroundTint="@color/btn"
         app:cornerRadius="15dp" />
 </LinearLayout>

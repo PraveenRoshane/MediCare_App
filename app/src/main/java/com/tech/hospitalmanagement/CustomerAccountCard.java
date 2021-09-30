@@ -196,9 +196,7 @@ public class CustomerAccountCard extends AppCompatActivity {
                             editText3.setText(expire);
                             editText4.setText(csv);
                             editText5.setText(bank);
-
                         }
-
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
 

@@ -60,11 +60,8 @@ public class PharmacyMain extends AppCompatActivity implements drugRVadapter.dru
                 startActivity(new Intent(PharmacyMain.this, AddPharmacyItem.class));
             }
         });
-
         getAllDrugs();
-
     }
-
     private void getAllDrugs(){
         drugModel.clear();
         databasereference.addChildEventListener(new ChildEventListener() {
@@ -74,25 +71,21 @@ public class PharmacyMain extends AppCompatActivity implements drugRVadapter.dru
                 drugModel.add(snapshot.getValue(DrugModel.class));
                 drugRVadapter.notifyDataSetChanged();
             }
-
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 loadingPB.setVisibility(View.GONE);
                 drugRVadapter.notifyDataSetChanged();
             }
-
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
                 loadingPB.setVisibility(View.GONE);
                 drugRVadapter.notifyDataSetChanged();
             }
-
             @Override
             public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 loadingPB.setVisibility(View.GONE);
                 drugRVadapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

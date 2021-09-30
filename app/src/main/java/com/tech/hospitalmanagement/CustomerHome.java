@@ -18,7 +18,7 @@ public class CustomerHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_home);
 
-        imageView1=(ImageView)findViewById(R.id.appointment);
+        imageView1=(ImageView)findViewById(R.id.docotr);
         imageView2=(ImageView)findViewById(R.id.logout);
         imageView3=(ImageView)findViewById(R.id.payment);
 

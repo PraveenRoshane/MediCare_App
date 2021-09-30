@@ -1,8 +1,5 @@
 package com.tech.hospitalmanagement;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -18,6 +15,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -45,7 +45,7 @@ public class ManageDoctors extends AppCompatActivity {
         setContentView(R.layout.activity_manage_doctors);
 
         button = (FloatingActionButton) findViewById(R.id.button);
-        listView = (ListView)findViewById(R.id.listview);
+        listView = (ListView) findViewById(R.id.listview);
 
         user = new ArrayList<>();
 
@@ -64,7 +64,7 @@ public class ManageDoctors extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 user.clear();
 
-                for (DataSnapshot taskDatasnap : dataSnapshot.getChildren()){
+                for (DataSnapshot taskDatasnap : dataSnapshot.getChildren()) {
 
                     DoctorDetails doctorDetails = taskDatasnap.getValue(DoctorDetails.class);
                     user.add(doctorDetails);
@@ -120,8 +120,8 @@ public class ManageDoctors extends AppCompatActivity {
                 holder.COL1 = (TextView) view.findViewById(R.id.name);
                 holder.COL2 = (TextView) view.findViewById(R.id.special);
                 holder.COL3 = (TextView) view.findViewById(R.id.time);
-                holder.button1=(Button)view.findViewById(R.id.delete);
-                holder.button2=(Button)view.findViewById(R.id.edit);
+                holder.button1 = (Button) view.findViewById(R.id.delete);
+                holder.button2 = (Button) view.findViewById(R.id.edit);
 
                 view.setTag(holder);
             } else {
@@ -168,18 +168,18 @@ public class ManageDoctors extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getContext());
-                    View view1 = inflater.inflate(R.layout.custom_update_doctor,null);
+                    View view1 = inflater.inflate(R.layout.custom_update_doctor, null);
                     dialogBuilder.setView(view1);
 
-                    final EditText editText1 = (EditText)view1.findViewById(R.id.udatedocid);
-                    final EditText editText2 = (EditText)view1.findViewById(R.id.udatedocName);
-                    final EditText editText3 = (EditText)view1.findViewById(R.id.udatedocAge);
-                    final EditText editText4 = (EditText)view1.findViewById(R.id.udatedocCoatcat);
-                    final EditText editText5 = (EditText)view1.findViewById(R.id.udatedocAddress);
-                    final EditText editText6 = (EditText)view1.findViewById(R.id.udatedocSpecialist);
-                    final EditText editText7 = (EditText)view1.findViewById(R.id.udatedocTime);
-                    final EditText editText8 = (EditText)view1.findViewById(R.id.udatedocprice);
-                    final Button button = (Button)view1.findViewById(R.id.udate);
+                    final EditText editText1 = (EditText) view1.findViewById(R.id.udatedocid);
+                    final EditText editText2 = (EditText) view1.findViewById(R.id.udatedocName);
+                    final EditText editText3 = (EditText) view1.findViewById(R.id.udatedocAge);
+                    final EditText editText4 = (EditText) view1.findViewById(R.id.udatedocCoatcat);
+                    final EditText editText5 = (EditText) view1.findViewById(R.id.udatedocAddress);
+                    final EditText editText6 = (EditText) view1.findViewById(R.id.udatedocSpecialist);
+                    final EditText editText7 = (EditText) view1.findViewById(R.id.udatedocTime);
+                    final EditText editText8 = (EditText) view1.findViewById(R.id.udatedocprice);
+                    final Button button = (Button) view1.findViewById(R.id.udate);
 
                     final AlertDialog alertDialog = dialogBuilder.create();
                     alertDialog.show();
@@ -205,24 +205,19 @@ public class ManageDoctors extends AppCompatActivity {
                             editText6.setText(specialist);
                             editText7.setText(time);
                             editText8.setText(price);
-
-
                         }
-
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
 
                         }
                     });
 
-
-
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             String id = editText1.getText().toString();
                             String name = editText2.getText().toString();
-                            String age =editText3.getText().toString();
+                            String age = editText3.getText().toString();
                             String contact = editText4.getText().toString();
                             String address = editText5.getText().toString();
                             String special = editText6.getText().toString();
@@ -234,7 +229,7 @@ public class ManageDoctors extends AppCompatActivity {
                                 editText1.setError("ID is required");
                             } else if (name.isEmpty()) {
                                 editText2.setError("Name is required");
-                            }  else if (age.isEmpty()) {
+                            } else if (age.isEmpty()) {
                                 editText3.setError("Age is required");
                             } else if (contact.isEmpty()) {
                                 editText4.setError("Contact is required");
@@ -242,22 +237,21 @@ public class ManageDoctors extends AppCompatActivity {
                                 editText5.setError("Address is required");
                             } else if (special.isEmpty()) {
                                 editText6.setError("Specialist is required");
-                            }else if (time.isEmpty()) {
+                            } else if (time.isEmpty()) {
                                 editText7.setError("Time Type is required");
-                            }
-                            else if (price.isEmpty()) {
+                            } else if (price.isEmpty()) {
                                 editText8.setError("Appointment Charge is required");
-                            }else {
+                            } else {
 //
                                 HashMap map = new HashMap();
                                 map.put("id", id);
-                                map.put("name",name);
-                                map.put("age",age);
-                                map.put("contact",contact);
-                                map.put("address",address);
-                                map.put("specialist",special);
-                                map.put("time",time);
-                                map.put("price",price);
+                                map.put("name", name);
+                                map.put("age", age);
+                                map.put("contact", contact);
+                                map.put("address", address);
+                                map.put("specialist", special);
+                                map.put("time", time);
+                                map.put("price", price);
                                 reference.updateChildren(map);
 
                                 Toast.makeText(ManageDoctors.this, "Doctor updated successfully", Toast.LENGTH_SHORT).show();
