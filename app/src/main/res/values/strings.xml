@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hospital Management</string>
+    <string name="app_name">MedCare</string>
     <string name="tv_login_register">Didn\'t have an account ? Register</string>
     <string name="lg_username">Username</string>
     <string name="lg_Password">Password</string>
