@@ -17,7 +17,7 @@ public class AdminHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
 
-        imageView1=(ImageView)findViewById(R.id.docotr);
+        imageView1=(ImageView)findViewById(R.id.doctor);
         imageView2=(ImageView)findViewById(R.id.pharmacy);
 
         imageView1.setOnClickListener(new View.OnClickListener() {

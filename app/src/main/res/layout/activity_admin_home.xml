@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/CH_logo">
 
         <ImageView
-            android:id="@+id/docotr"
+            android:id="@+id/doctor"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/CH_appoint"

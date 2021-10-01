@@ -19,7 +19,6 @@ public class drugRVadapter extends RecyclerView.Adapter<drugRVadapter.ViewHolder
 
     private ArrayList<DrugModel> drugModelArrayList;
     private Context context;
-    int lastpos = -1;
     private drugClickInterface drugClickInterface;
 
     public drugRVadapter(ArrayList<DrugModel> drugModelArrayList, Context context, drugRVadapter.drugClickInterface drugClickInterface) {
