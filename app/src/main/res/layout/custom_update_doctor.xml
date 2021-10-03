@@ -8,7 +8,7 @@
     tools:context=".AddDoctor">
 
     <EditText
-        android:id="@+id/udatedocid"
+        android:id="@+id/updatedocid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -17,7 +17,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/udatedocName"
+        android:id="@+id/updatedocName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -26,7 +26,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/udatedocAge"
+        android:id="@+id/updatedocAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -35,7 +35,7 @@
         android:inputType="number" />
 
     <EditText
-        android:id="@+id/udatedocCoatcat"
+        android:id="@+id/updatedocCoatcat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -44,7 +44,7 @@
         android:inputType="number" />
 
     <EditText
-        android:id="@+id/udatedocAddress"
+        android:id="@+id/updatedocAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -53,7 +53,7 @@
         android:inputType="text" />
 
     <EditText
-        android:id="@+id/udatedocSpecialist"
+        android:id="@+id/updatedocSpecialist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -62,7 +62,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/udatedocTime"
+        android:id="@+id/updatedocTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -71,7 +71,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/udatedocprice"
+        android:id="@+id/updatedocprice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -80,7 +80,7 @@
         android:inputType="number" />
 
     <Button
-        android:id="@+id/udate"
+        android:id="@+id/update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"

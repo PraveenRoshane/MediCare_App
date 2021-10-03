@@ -171,15 +171,15 @@ public class ManageDoctors extends AppCompatActivity {
                     View view1 = inflater.inflate(R.layout.custom_update_doctor, null);
                     dialogBuilder.setView(view1);
 
-                    final EditText editText1 = (EditText) view1.findViewById(R.id.udatedocid);
-                    final EditText editText2 = (EditText) view1.findViewById(R.id.udatedocName);
-                    final EditText editText3 = (EditText) view1.findViewById(R.id.udatedocAge);
-                    final EditText editText4 = (EditText) view1.findViewById(R.id.udatedocCoatcat);
-                    final EditText editText5 = (EditText) view1.findViewById(R.id.udatedocAddress);
-                    final EditText editText6 = (EditText) view1.findViewById(R.id.udatedocSpecialist);
-                    final EditText editText7 = (EditText) view1.findViewById(R.id.udatedocTime);
-                    final EditText editText8 = (EditText) view1.findViewById(R.id.udatedocprice);
-                    final Button button = (Button) view1.findViewById(R.id.udate);
+                    final EditText editText1 = (EditText) view1.findViewById(R.id.updatedocid);
+                    final EditText editText2 = (EditText) view1.findViewById(R.id.updatedocName);
+                    final EditText editText3 = (EditText) view1.findViewById(R.id.updatedocAge);
+                    final EditText editText4 = (EditText) view1.findViewById(R.id.updatedocCoatcat);
+                    final EditText editText5 = (EditText) view1.findViewById(R.id.updatedocAddress);
+                    final EditText editText6 = (EditText) view1.findViewById(R.id.updatedocSpecialist);
+                    final EditText editText7 = (EditText) view1.findViewById(R.id.updatedocTime);
+                    final EditText editText8 = (EditText) view1.findViewById(R.id.updatedocprice);
+                    final Button button = (Button) view1.findViewById(R.id.update);
 
                     final AlertDialog alertDialog = dialogBuilder.create();
                     alertDialog.show();
