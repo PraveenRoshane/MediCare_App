@@ -37,6 +37,8 @@ public class CustomerHome extends AppCompatActivity {
         imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(CustomerHome.this, "Logged out", Toast.LENGTH_SHORT).show();
+                mAuth.signOut();
                 Intent intent = new Intent(CustomerHome.this, ChooseActor.class);
                 startActivity(intent);
             }
@@ -45,8 +47,6 @@ public class CustomerHome extends AppCompatActivity {
         imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(CustomerHome.this, "Logged out", Toast.LENGTH_SHORT).show();
-                mAuth.signOut();
                 Intent intent = new Intent(CustomerHome.this, CustomerAccountCard.class);
                 startActivity(intent);
             }
