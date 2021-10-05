@@ -62,12 +62,11 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 reference = FirebaseDatabase.getInstance().getReference("User");
-//                reference = rootNode.getReference("Users");
 
-                final String namee = editText1.getText().toString();
-                final String emaill = editText2.getText().toString();
+                final String name = editText1.getText().toString();
+                final String email = editText2.getText().toString();
                 final String age = editText3.getText().toString();
-                final String phonee = editText4.getText().toString();
+                final String phone = editText4.getText().toString();
                 final String pass = editText5.getText().toString();
 
 
@@ -76,7 +75,7 @@ public class Register extends AppCompatActivity {
                 }
                 else{
 
-                    firebaseAuth.createUserWithEmailAndPassword(emaill, pass)
+                    firebaseAuth.createUserWithEmailAndPassword(email, pass)
                             .addOnCompleteListener(Register.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -84,7 +83,7 @@ public class Register extends AppCompatActivity {
                                         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                                         String userid = user.getUid();
 
-                                        Users members = new Users(userid,namee,emaill,age,phonee,pass);
+                                        Users members = new Users(userid,name,email,age,phone,pass);
                                         reference.child(userid).setValue(members);
 
                                         System.out.println(members);
@@ -106,7 +105,7 @@ public class Register extends AppCompatActivity {
 
     public boolean validateUserName() {
         String value = editText1.getText().toString();
-        String noWhiteSpace = "\\A\\w{4,20}\\z";
+        String noWhiteSpace = "\\A\\w{4,20}\\z";                               //No white Spaces
 
         if (value.isEmpty()) {
             editText1.setError("Field cannot be empty");
@@ -167,9 +166,6 @@ public class Register extends AppCompatActivity {
     public boolean validatePassword() {
         String value = editText5.getText().toString();
         String password = "^" +
-                //"(?=.*[0-9])"     +           //at least 1 digit
-                //"(?=.*[a-z])"     +           //at least 1 lower case letter
-                //"(?=.*[A-Z])"    +            //at least 1 upper case letter
                 "(?=.*[a-zA-Z])" +              //any letter
                 "(?=.*[@#$%^&+=])" +            //at least 1 special character
                 "(?=\\S+$)" +                   //no white spaces
