@@ -144,9 +144,6 @@ public class EditPharmacyItem extends AppCompatActivity {
         if (value.isEmpty()) {
             drugURL.setError("Field cannot be empty");
             return false;
-        } else if (URLUtil.isValidUrl(value)) {
-            drugURL.setError("Please enter an valid URL");
-            return false;
         } else {
             drugID.setError(null);
             return true;
