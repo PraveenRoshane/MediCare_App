@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
-        android:hint="Doctor ID"
+        android:hint="@string/updatedocid"
         android:inputType="textPersonName" />
 
     <EditText
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
-        android:hint="Doctor Name"
+        android:hint="@string/updatedocName"
         android:inputType="textPersonName" />
 
     <EditText
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
-        android:hint="Age"
+        android:hint="@string/updatedocAge"
         android:inputType="number" />
 
     <EditText
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
-        android:hint="Contact"
+        android:hint="@string/updatedocCoatcat"
         android:inputType="number" />
 
     <EditText
@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
-        android:hint="Address"
+        android:hint="@string/updatedocAddress"
         android:inputType="text" />
 
     <EditText
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
-        android:hint="Specialist For"
+        android:hint="@string/updatedocSpecialist"
         android:inputType="textPersonName" />
 
     <EditText
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
-        android:hint="Time"
+        android:hint="@string/updatedocTime"
         android:inputType="textPersonName" />
 
     <EditText
@@ -76,7 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
-        android:hint="Time"
+        android:hint="@string/updatedocprice"
         android:inputType="number" />
 
     <Button
@@ -84,7 +84,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Update Details"
+        android:text="@string/update"
         android:textColor="@color/white"
         app:backgroundTint="@color/btn"
         app:cornerRadius="15dp" />

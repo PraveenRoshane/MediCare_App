@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Go to appointment list"
+        android:text="@string/button"
         android:textColor="@color/white"
         app:backgroundTint="@color/btn"
         app:cornerRadius="15dp" />

@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
-            android:text="Dr.Arjuna Herath"
+            android:text="@string/name"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="24sp"
@@ -46,7 +46,7 @@
             android:layout_marginTop="80dp"
             android:layout_marginEnd="100dp"
             android:layout_marginRight="100dp"
-            android:text="Dental Surgeon"
+            android:text="@string/special"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -58,7 +58,7 @@
             android:layout_gravity="clip_horizontal|center_horizontal"
             android:layout_marginTop="130dp"
             android:gravity="center_horizontal"
-            android:text="WeekDays - 8.00AM/7.00PM"
+            android:text="@string/time"
             android:textAlignment="center"
             android:textSize="20sp" />
 
@@ -71,7 +71,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="170dp"
             android:layout_marginBottom="10dp"
-            android:text="Edit"
+            android:text="@string/edit"
             android:textColor="#FFFFFF"
             app:backgroundTint="@color/btn"
             app:cornerRadius="20dp" />
@@ -85,7 +85,7 @@
             android:layout_marginEnd="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
-            android:text="Delete"
+            android:text="@string/delete"
             android:textColor="#FFFFFF"
             app:backgroundTint="@android:color/holo_red_light"
             app:cornerRadius="20dp" />

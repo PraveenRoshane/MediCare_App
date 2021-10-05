@@ -40,9 +40,9 @@ public class ManageDoctors extends AppCompatActivity {
     DatabaseReference ref;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {                //bundle obj that is passed into oncreate
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manage_doctors);
+        setContentView(R.layout.activity_manage_doctors);              //method to render ui
 
         button = (FloatingActionButton) findViewById(R.id.button);
         listView = (ListView) findViewById(R.id.listview);
@@ -52,19 +52,19 @@ public class ManageDoctors extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ManageDoctors.this, AddDoctor.class);
+                Intent intent = new Intent(ManageDoctors.this, AddDoctor.class);      //go to add form
                 startActivity(intent);
             }
         });
 
-        ref = FirebaseDatabase.getInstance().getReference("Doctors");
+        ref = FirebaseDatabase.getInstance().getReference("Doctors");                 //db ref
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 user.clear();
 
-                for (DataSnapshot taskDatasnap : dataSnapshot.getChildren()) {
+                for (DataSnapshot taskDatasnap : dataSnapshot.getChildren()) {            // get all items from db
 
                     DoctorDetails doctorDetails = taskDatasnap.getValue(DoctorDetails.class);
                     user.add(doctorDetails);
@@ -108,7 +108,7 @@ public class ManageDoctors extends AppCompatActivity {
             int y;
             String barcode;
         }
-
+                                                                                    // VIEW FUNCTION
         @SuppressLint("SetTextI18n")
         @Override
         public View getView(int position, View view, ViewGroup parent) {
@@ -137,6 +137,7 @@ public class ManageDoctors extends AppCompatActivity {
 
             final String idd = user.get(position).getId();
 
+                                                                                        //   DELETE FUNCTION
             holder.button1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -163,7 +164,7 @@ public class ManageDoctors extends AppCompatActivity {
                             .show();
                 }
             });
-
+                                                                               //UPDATE FUNCTION
             holder.button2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
