@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -52,40 +53,45 @@ public class EditPharmacyItem extends AppCompatActivity {
             drugDescription.setText(drugModel.getDrugDescription());
             DID = drugModel.getDrugID();
         }
+        if (!validateDrugID() || !validateDrugName() || !validateDrugURL() || !validatePrice() || !validateDescription()) {
+            Toast.makeText(EditPharmacyItem.this, "Item updating failed", Toast.LENGTH_SHORT).show();
+        }
+        else {
 
-        databasereference = firebasedatabase.getReference("PharmacyItems").child(DID);
+            databasereference = firebasedatabase.getReference("PharmacyItems").child(DID);
 
-        editDrug.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String DrugID = drugID.getText().toString();
-                String DrugName = drugName.getText().toString();
-                String DrugURL = drugURL.getText().toString();
-                String DrugPrice = drugPrice.getText().toString();
-                String DrugDescription = drugDescription.getText().toString();
+            editDrug.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String DrugID = drugID.getText().toString();
+                    String DrugName = drugName.getText().toString();
+                    String DrugURL = drugURL.getText().toString();
+                    String DrugPrice = drugPrice.getText().toString();
+                    String DrugDescription = drugDescription.getText().toString();
 
-                Map<String,Object> map = new HashMap<>();
-                map.put("DrugID",DrugID);
-                map.put("DrugName",DrugName);
-                map.put("DrugURL",DrugURL);
-                map.put("DrugPrice",DrugPrice);
-                map.put("DrugDescription",DrugDescription);
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("DrugID", DrugID);
+                    map.put("DrugName", DrugName);
+                    map.put("DrugURL", DrugURL);
+                    map.put("DrugPrice", DrugPrice);
+                    map.put("DrugDescription", DrugDescription);
 
-                databasereference.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        databasereference.updateChildren(map);
-                        Toast.makeText(EditPharmacyItem.this, "Successful Updated", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(EditPharmacyItem.this, PharmacyMain.class));
-                    }
+                    databasereference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            databasereference.updateChildren(map);
+                            Toast.makeText(EditPharmacyItem.this, "Successful Updated", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(EditPharmacyItem.this, PharmacyMain.class));
+                        }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        Toast.makeText(EditPharmacyItem.this, "Error Didnt update..", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        });
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            Toast.makeText(EditPharmacyItem.this, "Error Didnt update..", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            });
+        }
 
         deleteDrug.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,5 +105,75 @@ public class EditPharmacyItem extends AppCompatActivity {
         databasereference.removeValue();
         Toast.makeText(EditPharmacyItem.this, "Drug deleted", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(EditPharmacyItem.this, PharmacyMain.class));
+    }
+
+    public boolean validateDrugID() {
+        String value = drugID.getText().toString();
+        String noWhiteSpace = "\\A\\w{4,20}\\z";                               //No white Spaces
+
+        if (value.isEmpty()) {
+            drugID.setError("Field cannot be empty");
+            return false;
+        } else if (value.length() == 5) {
+            drugID.setError("There should be at least 5 characters in item ID");
+            return false;
+        } else if (!value.matches(noWhiteSpace)) {
+            drugID.setError("White Spaces are not allowed");
+            return false;
+        } else {
+            drugID.setError(null);
+            return true;
+        }
+    }
+
+    public boolean validateDrugName() {
+        String value = drugName.getText().toString();
+
+        if (value.isEmpty()) {
+            drugName.setError("Field cannot be empty");
+            return false;
+        } else {
+            drugName.setError(null);
+            return true;
+        }
+    }
+
+    public boolean validateDrugURL() {
+        String value = drugURL.getText().toString();
+
+        if (value.isEmpty()) {
+            drugURL.setError("Field cannot be empty");
+            return false;
+        } else if (URLUtil.isValidUrl(value)) {
+            drugURL.setError("Please enter an valid URL");
+            return false;
+        } else {
+            drugID.setError(null);
+            return true;
+        }
+    }
+
+    public boolean validatePrice() {
+        String value = drugPrice.getText().toString();
+
+        if (value.isEmpty()) {
+            drugPrice.setError("Field cannot be empty");
+            return false;
+        } else {
+            drugPrice.setError(null);
+            return true;
+        }
+    }
+
+    public boolean validateDescription() {
+        String value = drugDescription.getText().toString();
+
+        if (value.isEmpty()) {
+            drugDescription.setError("Field cannot be empty");
+            return false;
+        } else {
+            drugDescription.setError(null);
+            return true;
+        }
     }
 }

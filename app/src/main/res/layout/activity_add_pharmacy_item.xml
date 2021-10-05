@@ -76,7 +76,7 @@
         android:autofillHints="@string/drugPrice"
         android:ems="10"
         android:hint="@string/drugPrice"
-        android:inputType="number"
+        android:inputType="number|numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/drugURL" />
