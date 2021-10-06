@@ -53,7 +53,7 @@ public class EditPharmacyItem extends AppCompatActivity {
             drugDescription.setText(drugModel.getDrugDescription());
             DID = drugModel.getDrugID();
         }
-        if (!validateDrugID() || !validateDrugName() || !validateDrugURL() || !validatePrice() || !validateDescription()) {
+        if (!validateDrugID() | !validateDrugName() | !validateDrugURL() | !validatePrice() | !validateDescription()) {
             Toast.makeText(EditPharmacyItem.this, "Item updating failed", Toast.LENGTH_SHORT).show();
         }
         else {
@@ -114,9 +114,6 @@ public class EditPharmacyItem extends AppCompatActivity {
         if (value.isEmpty()) {
             drugID.setError("Field cannot be empty");
             return false;
-        } else if (value.length() == 5) {
-            drugID.setError("There should be at least 5 characters in item ID");
-            return false;
         } else if (!value.matches(noWhiteSpace)) {
             drugID.setError("White Spaces are not allowed");
             return false;
@@ -131,6 +128,9 @@ public class EditPharmacyItem extends AppCompatActivity {
 
         if (value.isEmpty()) {
             drugName.setError("Field cannot be empty");
+            return false;
+        } else if (value.length() <= 18) {
+            drugID.setError("There should be at least 5 characters in item ID");
             return false;
         } else {
             drugName.setError(null);
